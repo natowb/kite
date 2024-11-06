@@ -2,13 +2,16 @@
 #define APP_H
 
 #include <raylib.h>
-
 typedef struct {
   int reload_count;
   Texture2D texture;
+  char file_name[256];
+  int file_bytes_count;
   Font font;
   Camera2D camera;
   int screen_id;
+  int argc;
+  char **argv;
 } app_ctx;
 
 #ifdef HOTRELOAD

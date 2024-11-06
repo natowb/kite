@@ -56,7 +56,11 @@ bool reload_app() {
   return true;
 }
 
-int main(void) {
+int main(int argc, char **argv) {
+
+
+  ctx.argc = argc;
+  ctx.argv = argv;
 
   SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_WINDOW_ALWAYS_RUN);
   const int width = 1280;

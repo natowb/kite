@@ -27,13 +27,13 @@ ifdef HOT
 	${MAKE} app
 	# Compile main with HOTRELOAD flag and run it with libapp.so in LD_LIBRARY_PATH
 	${MAKE} raylib
-	gcc ${CFLAGS} -DHOTRELOAD ${INCLUDE_FLAGS} ${LIB_FLAGS} -o ${BUILD_DIR}/app ${SRC_DIR}/main.c
-	LD_LIBRARY_PATH="${RAYLIB_DIR}:${BUILD_DIR}:$LD_LIBRARY_PATH" ${BUILD_DIR}/app
+	gcc ${CFLAGS} -DHOTRELOAD ${INCLUDE_FLAGS} ${LIB_FLAGS} -o ${BUILD_DIR}/kite ${SRC_DIR}/main.c
+	LD_LIBRARY_PATH="${RAYLIB_DIR}:${BUILD_DIR}:$LD_LIBRARY_PATH" ${BUILD_DIR}/kite
 else
 	# Clean up existing shared libraries if not in hot-reload mode
 	[ -f ${BUILD_DIR}/libapp.so ] && rm ${BUILD_DIR}/libapp.so || echo ""
 	# Compile statically linking raylib.a
-	gcc ${CFLAGS} ${INCLUDE_FLAGS} -o ${BUILD_DIR}/app ${SRC_DIR}/main.c ${SRC_DIR}/app.c ${RAYLIB_DIR}/libraylib.a -lm
+	gcc ${CFLAGS} ${INCLUDE_FLAGS} -o ${BUILD_DIR}/kite ${SRC_DIR}/main.c ${SRC_DIR}/app.c ${RAYLIB_DIR}/libraylib.a -lm
 endif
 
 # Build raylib library
