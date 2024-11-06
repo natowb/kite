@@ -1,1 +1,2 @@
-An image viewer name based off word Kite in Maori meaning see
+A simple image viewer for linux.
+name based off word "kite" and "Te matakite" which mean "see" and "vision" respectively in Maori.
