@@ -1,14 +1,34 @@
 #ifndef APP_H
 #define APP_H
-
+#include "utils.h"
+#include <stdint.h>
 #include <raylib.h>
+
+#define STRING_MAX_LENGTH 256 
+
+
+typedef struct {
+  char* path;
+  Texture2D texture;
+} loaded_texture_t;
+
+DEFINE_DYNAMIC_ARRAY(loaded_texture_t)
+
+typedef struct {
+  da_loaded_texture_t textures;
+  uint32_t index;
+} Assets;
+
+
+
 typedef struct {
   int reload_count;
-  Texture2D texture;
   char file_name[256];
   int file_bytes_count;
   Font font;
   Camera2D camera;
+  Assets assets;
+  Texture2D *texture;
   int screen_id;
   int argc;
   char **argv;
